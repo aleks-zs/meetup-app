@@ -1,2 +1,2 @@
 # meetup-app
-Django Meetups Application
+Django Meetup Application
