@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'meetup/styles/base.css' %}" />
+    {% block custom_css %} {% endblock %}
+    {% block title %} {% endblock %}
+</head>
+<body>
+    <header id="main-header">
+        <nav><a href="/" id="main-logo">Meetups</a></nav>
+        {% block main_heading %} {% endblock %}
+        {% block header_content %} {% endblock %}
+    </header>
+    <main>
+      {% block body %} {% endblock %}
+    </main>
+</body>
+</html>
