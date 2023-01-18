@@ -21,9 +21,9 @@
     <section>
         <h2>Upcoming Meetups</h2>
         <ol>
-            {% if show_meetups %}
+            {% if meetups %}
                 {% for m in meetups %}
-                    {% include 'meetup/includes/meetup-item.html' with title=m.title location=m.location slug=m.slug %}
+                    {% include 'meetup/includes/meetup-item.html' with title=m.title location=m.location slug=m.slug image=m.image.url %}
                 {% endfor %}
             {% else %}
                 <p>No meetups</p>
