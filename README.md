@@ -3,7 +3,7 @@
 Web application for meetups
 
 ### To start:
-Prerequisites:
+Prerequisites: <br/>
 Docker 
 
 1. Clone repository 
