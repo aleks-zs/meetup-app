@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block title %}
-    <title>Meetup</title>
+    <title>{{ selected_meetup.title }}</title>
 {% endblock %}
 
 {% block main_heading %}
@@ -16,21 +16,29 @@
 {% block body %}
     {% if meetup_found %}
         <article>
-            <img src="" alt="">
+            <img id="main-image" src="{{ selected_meetup.image.url }}" alt="{{ selected_meetup.title }}">
             <section id="location">
                 <h2>Meetup Location</h2>
-                <address>This meetup takes place in:<span>LOCATION</span> (ADDRESS).</address>
+                <address>This meetup takes place in: <span>{{ selected_meetup.location.name }}</span> ({{ selected_meetup.location.address }}).</address>
             </section>
             <section id="details">
                 <h2>What's this meetup about?</h2>
                 <p>{{ selected_meetup.description }}</p>
                 <footer>
-                    <p>Need more details? Please <a href="">contact the organizer</a></p>
+                    <p>Need more details? Please <a href="mailto:{{ selected_meetup.organizer_email }}">contact the organizer</a></p>
                 </footer>
             </section>
             <section id="registration">
-                <h2>JOIN US</h2>
-                FORM
+                <h2>Join</h2>
+                <form action="{% url 'meetup-detail' selected_meetup.slug %}" method="POST">
+                    {% csrf_token %}
+                    <ul>
+                        {{ form.as_ul }}
+                    </ul>
+                    <div>
+                        <button id="registration-actions">Register</button>
+                    </div>
+                </form>
             </section>
         </article>
     {% else %}

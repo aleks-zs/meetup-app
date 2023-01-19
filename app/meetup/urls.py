@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('<slug:slug>/success', views.confirm_registration, name='confirm-registration'), # noqa
     path('<slug:slug>', views.meetup_details, name='meetup-detail')
 ]
